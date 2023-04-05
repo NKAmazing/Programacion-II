@@ -1,0 +1,45 @@
+@startuml Calculator
+
+''' Este es un simple ejemplo de un diagrama de clases UML sobre una calculadora '''
+
+class Calculo {
+    + sumar()
+    + restar()
+    + multiplicar()
+    + dividir()
+}
+
+class Numero {
+    + valor
+}
+
+class Suma {
+    + operando1
+    + operando2
+}
+
+class Resta {
+    + operando1
+    + operando2
+}
+
+class Multiplicar {
+    + operando1
+    + operando2
+}
+
+class Dividir {
+    + operando1
+    + operando2
+}
+
+Calculo <|-- Suma
+Calculo <|-- Resta
+Calculo <|-- Multiplicar
+Calculo <|-- Dividir
+
+Numero <|-- Suma
+Numero <|-- Resta
+Numero <|-- Multiplicar
+Numero <|-- Dividir
+@enduml

@@ -1,0 +1,46 @@
+@startuml Calculator
+
+''' Este es un ejemplo de diagrama de clases de una calculadora con el principio de responsabilidad unica '''
+
+class Numero {
+  - valor: double
+  + Numero(valor: double)
+}
+
+abstract class Operacion {
+  + operando1: Numero
+  + operando2: Numero
+  + resultado: Numero
+  + abstract calcular(): void
+}
+
+class Suma {
+  + calcular(): void
+}
+
+class Resta {
+  + calcular(): void
+}
+
+class Multiplicacion {
+  + calcular(): void
+}
+
+class Division {
+  + calcular(): void
+}
+
+class Calculadora {
+  - operacion: Operacion
+  + ingresarOperando(operando: Numero): void
+  + seleccionarOperacion(operacion: Operacion): void
+  + calcular(): void
+}
+
+Numero --> Operacion
+Operacion <|-- Suma
+Operacion <|-- Resta
+Operacion <|-- Multiplicacion
+Operacion <|-- Division
+Calculadora --> Operacion
+@enduml
