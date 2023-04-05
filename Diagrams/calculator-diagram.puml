@@ -1,0 +1,32 @@
+@startuml Calculator
+
+'''Este es un ejemplo de diagrama de clases de una calculadora con el principio de responsabilidad unica.'''
+
+class Main {
+    - operaciones: string[]
+    + mostrarMenu(): void
+    + seleccionarOpcion(): void
+    + ingresarNumero(): float[]
+}
+
+class Calculadora {
+    - operacion: string
+    - numeros: float[]
+    - result: float
+    + realizarCalculo(operacion: Operacion, numero: Numero): void
+    + mostrarResultado(): float
+}
+
+abstract class Calculo {
+    - valores: float[]
+    + add: float
+    + substract: float
+    + multiply: float
+    + divide: float
+}
+
+Main --> Calculadora
+Calculadora --> Calculo
+Calculo --> Calculadora
+
+@enduml
